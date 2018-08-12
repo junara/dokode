@@ -3,6 +3,7 @@
 class HomeController < ApplicationController
   def index
     @event_search = EventSearch.new
+    @news_releases = NewsRelease.order(published_at: :desc)
   end
 
   def search

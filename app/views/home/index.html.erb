@@ -1,3 +1,20 @@
 <div>
   <%= render partial: 'home/search_box', locals: {event_search: @event_search} %>
 </div>
+<div class="container my-5">
+  <h3 class="mb-4 display-4">NEW RELEASES</h3>
+  <div class="">
+    <% @news_releases.each do |news_release| %>
+      <div class="ml-auto d-flex font-weight-light small">
+        <div class="mr-3">
+          <%= news_release.published_at.strftime('%Y/%m/%d') %>
+        </div>
+        <div class="">
+          <p>
+            <%= news_release.body %>
+          </p>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

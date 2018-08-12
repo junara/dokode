@@ -43,7 +43,7 @@ class EventDecorator < ApplicationDecorator
     event.dtend = flag_all_day ? (end_at + 1.day).to_date : end_at
     event.dtstamp = created_at
     event.last_modified = updated_at
-    event.description = "イベント名\n#{name}\n\nイベントURL\n#{url}\n\nThis is provided by Dokode.\nhttps://www.dokode.work\n"
+    event.description = "イベント名\n#{name}\n\nイベントURL\n#{display_url}\n\nThis is provided by Dokode.\nhttps://www.dokode.work\n"
     event.uid = token.to_s
     event.url = helpers.event_url(token: token)
     calendar.add_event(event)
@@ -52,7 +52,7 @@ class EventDecorator < ApplicationDecorator
   end
 
   def mail_body
-    "イベント名\n#{name}\n\nイベントホームページ\n#{event.url}\n\n開催日時\n#{start_at} - #{end_at}"
+    "イベント名\n#{name}\n\nイベントホームページ\n#{display_url}\n\n開催日時\n#{start_at} - #{end_at}"
   end
 
   def share_line
@@ -60,11 +60,11 @@ class EventDecorator < ApplicationDecorator
   end
 
   def share_twitter
-    "https://twitter.com/intent/tweet?url=#{url}&text=#{CGI.escape("#{name}\n\n")}&hashtags=dokode"
+    "https://twitter.com/intent/tweet?url=#{display_url}&text=#{CGI.escape("#{name}\n\n")}&hashtags=dokode"
   end
 
   def share_facebook
-    "https://www.facebook.com/sharer/sharer.php?u=#{url}"
+    "https://www.facebook.com/sharer/sharer.php?u=#{display_url}"
   end
 
   def thumbnail(width = 100)
