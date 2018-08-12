@@ -1,0 +1,11 @@
+<% api_key = ENV['GOOGLE_API_KEY'] %>
+<% query = place_id ? "place_id:#{place_id}" : "address" %>
+
+<div class="w-100">
+  <iframe
+    class="shadow"
+    frameborder="0" style="border:0; width: 100%; height: 30vh"
+    src="https://www.google.com/maps/embed/v1/place?key=<%= api_key %>&q=<%= query %>"
+    allowfullscreen>
+  </iframe>
+</div>

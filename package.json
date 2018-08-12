@@ -1,0 +1,17 @@
+{
+  "name": "dokode",
+  "private": true,
+  "dependencies": {
+    "@rails/webpacker": "3.4",
+    "babel-preset-react": "^6.24.1",
+    "prop-types": "^15.6.1",
+    "react": "^16.3.2",
+    "react-dom": "^16.3.2",
+    "serverless-external-s3-event": "^1.0.10",
+    "serverless-plugin-existing-s3": "^2.2.2",
+    "serverless-python-requirements": "^4.1.1"
+  },
+  "devDependencies": {
+    "webpack-dev-server": "2.11.2"
+  }
+}

@@ -1,0 +1,19 @@
+@import 'bootstrap_variables';
+
+$blue-50: #E3F2FD; // material-ui color pallet
+$blue-100: #BBDEFB; // material-ui color pallet
+$blue-200: #90CAF9; // material-ui color pallet
+$blue-300: #64B5F6; // material-ui color pallet
+$blue-400: #42A5F5; // material-ui color pallet
+$blue-500: #2196F3; // material-ui color pallet
+$blue-600: #1E88E5; // material-ui color pallet
+$blue-700: #1976D2; // material-ui color pallet
+$blue-800: #1565C0; // material-ui color pallet
+$blue-900: #0D47A1; // material-ui color pallet
+
+$light-background-color: $gray-50;
+$dark-background-color: $blue-50;
+
+$text-primary: rgba(0, 0, 0, 0.87);
+$text-secondary: rgba(0, 0, 0, 0.54);
+$text-disabled: rgba(0, 0, 0, 0.38);

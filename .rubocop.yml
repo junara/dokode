@@ -1,0 +1,47 @@
+AllCops:
+  Exclude:
+    - "vendor/**/*"
+    - "db/schema.rb"
+    - "node_modules/**/*"
+    - "db/migrate/*.rb"
+    - "bin/*"
+    - "tmp/**/*"
+    - "config/initializers/*"
+  DisplayCopNames: true
+  TargetRubyVersion: 2.5.1
+
+Rails:
+  Enabled: true
+
+Style/AndOr:
+  EnforcedStyle: conditionals
+
+Style/AsciiComments:
+  Enabled: false
+
+Metrics/LineLength:
+  Max: 300
+  Exclude:
+    - "db/migrate/*.rb"
+
+Style/Documentation:
+  Enabled: false
+
+Metrics/AbcSize:
+  Max: 30
+
+Metrics/MethodLength:
+  Max: 40
+
+Style/NumericLiterals:
+  Enabled: false
+
+Bundler/OrderedGems:
+  Enabled: false
+
+Metrics/BlockLength:
+  CountComments: false
+  Max: 50
+  ExcludedMethods: []
+
+

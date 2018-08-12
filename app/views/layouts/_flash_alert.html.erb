@@ -1,0 +1,40 @@
+<div>
+  <% flash.each do |key, value| %>
+    <% case key %>
+  <% when 'notice' %>
+      <%= content_tag :div, value, class: "alert-dismissible alert alert-info" %>
+    <% when 'alert' %>
+      <%= content_tag :div, class: "alert-dismissible alert alert-danger fade show" do %>
+        <div>
+          <%= value %>
+        </div>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      <% end %>
+    <% when 'danger' %>
+      <% if value.kind_of?(Array) %>
+        <% value.each do |v| %>
+          <%= content_tag :div, class: "alert-dismissible alert alert-danger fade show" do %>
+            <div>
+              <%= v %>
+            </div>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          <% end %>
+        <% end %>
+      <% else %>
+        <%= content_tag :div, class: "alert-dismissible alert alert-danger fade show" do %>
+          <div>
+            <%= value %>
+          </div>
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        <% end %>
+      <% end %>
+    <% end %>
+  <% end %>
+</div>
+

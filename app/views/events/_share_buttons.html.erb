@@ -1,0 +1,26 @@
+<div class="d-flex">
+  <%= link_to event.share_twitter, {class: "w-100"} do %>
+    <div class="d-flex flex-column align-items-center bg-primary text-white">
+      <span><%= icon('fab', 'twitter') %></span>
+      <span>Twitter</span>
+    </div>
+  <% end %>
+  <%= link_to event.share_line, {class: "w-100"} do %>
+    <div class="d-flex flex-column align-items-center bg-success text-white">
+      <span><%= icon('fab', 'line') %></span>
+      <span>LINE</span>
+    </div>
+  <% end %>
+  <%= link_to event.share_facebook, {class: "w-100"} do %>
+    <div class="d-flex flex-column align-items-center bg-primary text-white">
+      <span><%= icon('fab', 'facebook') %></span>
+      <span>facebook</span>
+    </div>
+  <% end %>
+  <%= mail_to '', body: event.mail_body, subject: "イベント: #{event.name} 情報", class: 'w-100' do %>
+    <div class="d-flex flex-column align-items-center bg-danger text-white">
+      <span><%= icon('fas', 'envelope') %></span>
+      <span>メール</span>
+    </div>
+  <% end %>
+</div>

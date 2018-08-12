@@ -1,0 +1,52 @@
+<div class="list-group py-4">
+  <div class="list-group-item flex-column align-items-start">
+    <div class="d-flex w-100 justify-content-between">
+      <h5 class="mb-1">イベント名</h5>
+    </div>
+    <p class="mb-1"><%= event.name %></p>
+  </div>
+  <div class="list-group-item flex-column align-items-start">
+    <div class="d-flex w-100 justify-content-between">
+      <h5 class="mb-1">開催場所</h5>
+    </div>
+    <% event.event_venues.each do |event_venue| %>
+      <p class="mb-1"><%= link_to event_venue.name, event_venue.venue&.website %></p>
+    <% end %>
+  </div>
+  <div class="list-group-item flex-column align-items-start">
+    <div class="d-flex w-100 justify-content-between">
+      <h5 class="mb-1">イベントホームページ</h5>
+    </div>
+    <p class="mb-1">
+      <span class=""><%= icon('fas', 'home') %></span>
+      <%= link_to event.display_url, event.display_url, class: 'text-justify' %>
+      <%#= link_to event.display_url do %>
+      <%#= event.display_url.present? && image_tag(event.thumbnail(600), class: 'w-100 mt-3 rounded img-fluid ') %>
+      <%# end %>
+    </p>
+  </div>
+  <div class="list-group-item flex-column align-items-start">
+    <div class="d-flex w-100 justify-content-between">
+      <h5 class="mb-1">開催日時</h5>
+    </div>
+    <p class="mb-1">
+    <div class="d-flex align-items-baseline">
+      <span class="mr-1"><%= icon('fas', 'calendar-alt') %></span>
+      <span><%= "#{event.start_at.year}年#{event.start_at_month(1)}月#{event.start_at_day(1)}日" %></span>
+      <% unless event.end_at.day == event.start_at.day %>
+        <span>〜</span>
+        <span><%= "#{event.end_at_month(1)}月#{event.end_at_day(1)}日" %></span>
+      <% end %>
+    </div>
+    </p>
+    <div class="d-print-none">
+      <%= link_to event_path(token: event.token, format: :ics), {class: "btn btn-primary btn-lg btn-block"} do %>
+        <div>
+          <span class="mr-1"><%= icon('fas', 'calendar-alt') %></span>
+          カレンダーに登録
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+

@@ -1,0 +1,12 @@
+@import 'bootstrap_variables';
+@import 'colors';
+@import 'metrics';
+@import 'bootstrap_override';
+
+.background-color-light {
+  background-color: $light-background-color;
+}
+
+.background-color-dark {
+  background-color: $dark-background-color;
+}

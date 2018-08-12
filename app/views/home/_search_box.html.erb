@@ -1,0 +1,23 @@
+<div class="mx-auto d-flex flex-column px-lg-5 px-3 pt-5 pb-0 bg-success">
+  <div class="d-flex justify-content-center align-items-center w-100">
+    <div class="display-4 text-white">気になるあのイベントをさがそう</div>
+  </div>
+</div>
+<div class="mx-auto sticky-top py-3 bg-success shadow">
+  <div class="container">
+    <div class="my-3 bg-white">
+      <%= render partial: 'home/search_form', locals: {event_search: @event_search} %>
+    </div>
+    <div class="px-3 text-white d-flex">
+      <small>例：</small>
+      <div class="d-flex flex-wrap">
+        <%= search_btn_to '生物' %>
+        <%= search_btn_to '再生' %>
+        <%= search_btn_to '看護 小児' %>
+        <%= search_btn_to '医 癌' %>
+        <%= search_btn_to '歯 療' %>
+        <%= search_btn_to '東京都 医' %>
+      </div>
+    </div>
+  </div>
+</div>

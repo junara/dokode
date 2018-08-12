@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="20px" height="20px" viewBox="0 0 260 260" version="1.1" xmlns="http://www.w3.org/2000/svg"
+     xmlns:xlink="http://www.w3.org/1999/xlink">
+  <!-- Generator: Sketch 45.2 (43514) - http://www.bohemiancoding.com/sketch -->
+  <title>Group</title>
+  <desc>Created with Sketch.</desc>
+  <defs></defs>
+  <g id="Page-2" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+    <g id="Custom-Preset-2" fill="#F5A623">
+      <g id="Group">
+        <path d="M0,0 L43.3333333,0 L43.3333333,138.666667 L0,138.666667 L0,0 Z M43.3333333,52 L130,52 L130,95.3333333 L43.3333333,95.3333333 L43.3333333,52 Z"
+              id="Combined-Shape"></path>
+        <path d="M216.666667,121.333333 L260,121.333333 L260,260 L216.666667,260 L216.666667,121.333333 Z M130,164.666667 L130,121.333333 L216.666667,121.333333 L216.666667,164.666667 L130,164.666667 Z M130,260 L130,216.666667 L216.666667,216.666667 L216.666667,260 L130,260 Z"
+              id="Combined-Shape"></path>
+        <rect id="Rectangle"
+              transform="translate(95.333333, 21.666667) rotate(-90.000000) translate(-95.333333, -21.666667) "
+              x="73.6666667" y="13" width="43.3333333" height="17.3333333"></rect>
+        <rect id="Rectangle"
+              transform="translate(121.333333, 21.666667) rotate(-90.000000) translate(-121.333333, -21.666667) "
+              x="99.6666667" y="13" width="43.3333333" height="17.3333333"></rect>
+      </g>
+    </g>
+  </g>
+</svg>

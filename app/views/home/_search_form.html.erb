@@ -1,0 +1,10 @@
+<%= form_with model: event_search, url: search_path, method: :get, local: true, class: '' do |form| %>
+  <div class="d-flex align-items-center justify-content-center w-100">
+    <div class="d-flex flex-fill border-left border-top border-bottom rounded border-0">
+      <%= form.text_field :keyword, placeholder: 'フリーキーワード',class: 'form-control-plaintext pl-3 form-control-lg' %>
+      <%= button_tag type: 'submit', class: 'btn btn-secondary rounded border-0 pl-3 pr-3' do %>
+        <%= icon('fas', 'search') %>
+      <% end %>
+    </div>
+  </div>
+<% end %>

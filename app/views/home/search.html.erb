@@ -1,0 +1,10 @@
+<div>
+  <%= render partial: 'home/search_box', locals: {event_search: @event_search} %>
+  <div class="bg-white">
+    <div class="container pt-4">
+      <div class="row">
+        <%= render partial: 'home/event_card', collection: @events, as: :event, locals: {event_search: @event_search, keyword_array: @event_search.keyword_array, omit_content: false} %>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,78 @@
+<div class=" col-sm-6 mb-lg-4 mb-2">
+  <div class="card mt-2 h-100 shadow-sm">
+    <div class="card-header d-flex justify-content-end bg-transparent border-0">
+      <div class="mr-auto d-flex align-items-center">
+        <%= link_to event.venues&.first&.prefecture || '', search_path(event_search: {keyword: event.venues&.first&.prefecture}), class: "badge badge-secondary" %>
+      </div>
+      <div class="btn-group">
+        <div class="btn dropdown-toggle pt-1 pr-2 btn-outline-secondary border-0" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <%= icon('fas', 'bars') %>
+        </div>
+        <div class="dropdown-menu dropdown-menu-right">
+          <%= link_to event_path(token: event.token, format: :ics), {class: "dropdown-item"} do %>
+            <div>
+              <span class="mr-1"><%= icon('fas', 'calendar-alt') %></span>
+              カレンダーに登録
+            </div>
+          <% end %>
+          <div class="dropdown-divider"></div>
+          <%= link_to event.share_line, {class: "dropdown-item"} do %>
+            <div>
+              <span class="mr-1"><%= icon('fab', 'line') %></span>
+              LINEでシェアする
+            </div>
+          <% end %>
+          <%= link_to event.share_twitter, {class: "dropdown-item"} do %>
+            <div>
+              <span class="mr-1"><%= icon('fab', 'twitter') %></span>
+              Twitterでシェアする
+            </div>
+          <% end %>
+          <%= link_to event.share_facebook, {class: "dropdown-item"} do %>
+            <div>
+              <span class="mr-1"><%= icon('fab', 'facebook') %></span>
+              facebookでシェアする
+            </div>
+          <% end %>
+          <%= mail_to '', body: event.mail_body, subject: "イベント: #{event.name} 情報", class: 'dropdown-item' do %>
+            <span class="mr-1"><%= icon('fas', 'envelope') %></span>
+            メール起動
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <div class="card-body d-flex align-items-start justify-content-between pt-0">
+      <%= link_to event_path(token: event.token), class: 'w-75' do %>
+        <h4 class="h5 card-title font-weight-bold"><%= highlight(event.name, keyword_array) %></h4>
+        <div class="d-flex align-items-baseline font-weight-light text-secondary mb-2">
+          <span class="mr-1"><%= icon('fas', 'calendar-alt') %></span>
+          <span><%= "#{event.start_at_year}年#{event.start_at_month(1)}月#{event.start_at_day(1)}日" %></span>
+          <% unless event.end_at.day == event.start_at.day %>
+            <span>〜</span>
+            <span><%= "#{event.end_at_month(1)}月#{event.end_at_day(1)}日" %></span>
+          <% end %>
+        </div>
+        <p class="card-text text-secondary small">
+          <% !(omit_content.present? == true) && keyword_array.each do |keyword| %>
+            <span><%= highlight(excerpt(event.content, keyword, radius: 40), keyword_array) %></span>
+          <% end %>
+        </p>
+      <% end %>
+      <div class="d-flex flex-column justify-content-center align-items-center w-25 pl-2 flex-shrink-0">
+        <div class="w-100 text-center rounded bg-secondary text-white">
+          <%= event.start_at_month %>月
+        </div>
+        <div class="w-100 text-center font-weight-bold display-4">
+          <%= event.start_at_day %>
+        </div>
+        <% if event.display_url.present? %>
+          <%= link_to event_path(token: event.token), {id: "link_id", class: "card-link"} do %>
+            <%= event.display_url.present? && image_tag(event.thumbnail, class: 'w-100 mt-3 rounded img-fluid ') %>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+

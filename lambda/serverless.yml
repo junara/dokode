@@ -1,0 +1,46 @@
+service: aws-python3
+
+provider:
+  name: aws
+  runtime: python3.6
+  region: ap-northeast-1
+
+  iamRoleStatements:
+    - Effect: Allow
+      Action:
+        - s3:*
+      Resource:
+        Fn::Join:
+          - ""
+          - - "arn:aws:s3:::*"
+    - Effect: Allow
+      Action:
+        - dynamodb:DescribeTable
+        - dynamodb:Query
+        - dynamodb:Scan
+        - dynamodb:GetItem
+        - dynamodb:PutItem
+        - dynamodb:UpdateItem
+        - dynamodb:DeleteItem
+      Resource: "arn:aws:dynamodb:${self:provider.region}:*:table/*"
+
+
+plugins:
+  - serverless-python-requirements
+  - serverless-plugin-existing-s3
+
+custom:
+  bucket: dokode
+  pythonRequirements:
+    dockerizePip: true
+
+functions:
+  sample-func:
+    handler: handler.main
+    events:
+      - existingS3:
+        bucket: ${self:custom.bucket}
+        events:
+          - s3:ObjectCreated:*
+        rules:
+          - suffix: .csv

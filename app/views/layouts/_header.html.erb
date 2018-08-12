@@ -1,0 +1,15 @@
+<header class="pt-4 pb-5 d-print-none d-flex  justify-content-between align-items-end">
+  <div class="d-flex justify-content-center flex-wrap align-items-end">
+    <div class="mr-lg-3">
+      <small>登録された <%= Event.count %> イベントから探す</small>
+    </div>
+    <%= link_to root_path, {class: 'd-flex'} do %>
+      <div class="display-4 text-dark">理系の学会/研究会</div>
+    <% end %>
+  </div>
+  <div>
+    <%= link_to feed_index_path(format: :rss), {class: 'display-4'} do %>
+      <%= icon('fas', 'rss-square') %>
+    <% end %>
+  </div>
+</header>
