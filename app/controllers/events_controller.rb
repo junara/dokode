@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class EventsController < ApplicationController
+  include Pagy::Backend
   before_action :set_event, only: %i[show create]
 
   def show

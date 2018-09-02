@@ -15,7 +15,7 @@ class EventSearch
   end
 
   def exec
-    Event.search(search_params).result.order(start_at: :asc).limit(@display_limit)
+    Event.search(search_params).result.order(start_at: :asc)
   end
 
   def keyword_array

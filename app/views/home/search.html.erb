@@ -1,10 +1,31 @@
+<% set_meta_tags events_search_results_meta_tags(@event_search, @events) %>
+
 <div>
   <%= render partial: 'home/search_box', locals: {event_search: @event_search} %>
   <div class="bg-white">
     <div class="container pt-4">
-      <div class="row">
-        <%= render partial: 'home/event_card', collection: @events, as: :event, locals: {event_search: @event_search, keyword_array: @event_search.keyword_array, omit_content: false} %>
-      </div>
+      <% if @pagy.vars[:count] > 0 %>
+        <div class="d-flex justify-content-center mb-2">
+          <%== pagy_nav_compact_bootstrap(@pagy) %>
+        </div>
+        <div class="row">
+          <%= render partial: 'home/event_card', collection: @events.decorate, as: :event, locals: {event_search: @event_search, keyword_array: @event_search.keyword_array, omit_content: false} %>
+        </div>
+        <div class="d-flex justify-content-center mt-3">
+          <%== pagy_nav_compact_bootstrap(@pagy) %>
+        </div>
+      <% else %>
+        <div class="d-flex justify-content-center">
+          <div class="display-4">
+            <p>
+              <%= @event_search.keyword %> の 検索結果は 0 件です。
+            </p>
+            <p>
+              キーワードを見直してください。
+            </p>
+          </div>
+        </div>
+      <% end %>
     </div>
   </div>
 </div>

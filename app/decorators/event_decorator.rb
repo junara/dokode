@@ -78,4 +78,18 @@ class EventDecorator < ApplicationDecorator
     return url if url.present?
     return google_cse_result[0]['link'] if google_cse_result.present?
   end
+
+  def display_start_at
+    "#{start_at.year}年#{start_at_month(1)}月#{start_at_day(1)}日"
+  end
+
+  def display_first_place
+    event_venues&.first&.name
+  end
+
+  def display_places
+    return '' if event_venues.blank?
+    place_names = event_venues.map(&:name)
+    place_names.join(' & ')
+  end
 end

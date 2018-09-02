@@ -117,3 +117,12 @@ gem 'serviceworker-rails'
 # screenshot
 gem 'selenium-webdriver'
 gem 'mini_magick'
+
+# meta tags
+gem 'meta-tags'
+
+# sitemap generator
+gem 'sitemap_generator'
+
+# pagenate
+gem 'pagy'

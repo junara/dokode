@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class HomeController < ApplicationController
+  include Pagy::Backend
   def index
     @event_search = EventSearch.new
     @news_releases = NewsRelease.order(published_at: :desc)
@@ -12,7 +13,7 @@ class HomeController < ApplicationController
                     else
                       EventSearch.new
                     end
-    @events = @event_search.exec.decorate
+    @pagy, @events = pagy(@event_search.exec.includes(:venues))
   end
 
   private
